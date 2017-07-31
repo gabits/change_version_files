@@ -11,7 +11,6 @@ class VersionFileEditor:
         """Returns the content of a file according to the path provided.
         This method doesn't close files, so whenever used would require a .close() method call after.
         """
-        # Defines the path of a file as being the second element of a tuple, according to the class' path list.
         file_path = "{}/__init__.py".format(path)
         file = open(file_path, mode)
         return file
@@ -26,7 +25,7 @@ class VersionFileEditor:
                 print("{}: {}".format(website, version))
 
     def _change_file_name(self, file, new_version):
-        changed_line = "__version__ = '{}' ".format(new_version)
+        changed_line = "__version__ = '{}'".format(new_version)
         file.write(changed_line)
         file.write("\n")            # Guarantees an empty line at the end of the file
         file.close()
